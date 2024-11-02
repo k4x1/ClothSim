@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "ClothSim",
+			"Path": "..\\Source\\ClothSim.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "ClothSimEditor",
+			"Path": "..\\Source\\ClothSimEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\forkrepos\\clothsim\\clothsim\\source\\clothsim\\clothsim.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\forkrepos\\clothsim\\clothsim\\intermediate\\build\\win64\\x64\\clothsimeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\forkrepos\\clothsim\\clothsim\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\clothsim\\definitions.clothsim.h",
+            "d:\\forkrepos\\clothsim\\clothsim\\source\\clothsim\\clothsim.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

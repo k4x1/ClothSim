@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-ClothSim-3676.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\forkRepos\ClothSim\ClothSim\Intermediate\Build\Win64\x64\ClothSimEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
+"D:\forkRepos\ClothSim\ClothSim\Intermediate\Build\Win64\x64\UnrealEditor\Development\ClothSim\ClothSim.cpp.obj"
+"D:\forkRepos\ClothSim\ClothSim\Intermediate\Build\Win64\x64\UnrealEditor\Development\ClothSim\StartClass.cpp.obj"
+"D:\forkRepos\ClothSim\ClothSim\Intermediate\Build\Win64\x64\UnrealEditor\Development\ClothSim\Default.rc2.res"
+/OUT:"D:\forkRepos\ClothSim\ClothSim\Intermediate\Build\Win64\x64\UnrealEditor\Development\ClothSim\UnrealEditor-ClothSim-3676.lib"

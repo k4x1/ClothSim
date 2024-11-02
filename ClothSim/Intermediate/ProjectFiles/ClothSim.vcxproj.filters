@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\ClothSim.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\ClothSim.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\ClothSimEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\.vsconfig" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\ClothSim">
+      <UniqueIdentifier>{8F95F2ED-AD59-37EB-AF19-28946488C209}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\ClothSim\ClothSim.Build.cs">
+      <Filter>Source\ClothSim</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\ClothSim\ClothSim.cpp">
+      <Filter>Source\ClothSim</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ClothSim\ClothSim.h">
+      <Filter>Source\ClothSim</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ClothSim\StartClass.cpp">
+      <Filter>Source\ClothSim</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ClothSim\StartClass.h">
+      <Filter>Source\ClothSim</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

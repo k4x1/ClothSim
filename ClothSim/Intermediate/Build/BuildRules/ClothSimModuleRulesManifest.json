@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"D:\\forkRepos\\ClothSim\\ClothSim\\Source\\ClothSim\\ClothSim.Build.cs",
+		"D:\\forkRepos\\ClothSim\\ClothSim\\Source\\ClothSim.Target.cs",
+		"D:\\forkRepos\\ClothSim\\ClothSim\\Source\\ClothSimEditor.Target.cs"
+	],
+	"EngineVersion": "5.4.4"
+}
