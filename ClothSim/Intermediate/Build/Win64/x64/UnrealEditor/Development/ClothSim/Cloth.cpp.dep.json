@@ -1,0 +1,21 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\forkrepos\\clothsim\\clothsim\\source\\clothsim\\private\\cloth.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\forkrepos\\clothsim\\clothsim\\intermediate\\build\\win64\\x64\\clothsimeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\forkrepos\\clothsim\\clothsim\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\clothsim\\definitions.clothsim.h",
+            "d:\\forkrepos\\clothsim\\clothsim\\source\\clothsim\\public\\cloth.h",
+            "d:\\forkrepos\\clothsim\\clothsim\\intermediate\\build\\win64\\unrealeditor\\inc\\clothsim\\uht\\cloth.generated.h",
+            "d:\\forkrepos\\clothsim\\clothsim\\source\\clothsim\\public\\clothparticle.h",
+            "d:\\forkrepos\\clothsim\\clothsim\\source\\clothsim\\public\\clothconstraint.h",
+            "d:\\download\\ue\\ue_5.4\\engine\\plugins\\runtime\\proceduralmeshcomponent\\source\\proceduralmeshcomponent\\public\\proceduralmeshcomponent.h",
+            "d:\\download\\ue\\ue_5.4\\engine\\plugins\\runtime\\proceduralmeshcomponent\\intermediate\\build\\win64\\unrealeditor\\inc\\proceduralmeshcomponent\\uht\\proceduralmeshcomponent.generated.h",
+            "d:\\download\\ue\\ue_5.4\\engine\\plugins\\runtime\\proceduralmeshcomponent\\source\\proceduralmeshcomponent\\public\\kismetproceduralmeshlibrary.h",
+            "d:\\download\\ue\\ue_5.4\\engine\\plugins\\runtime\\proceduralmeshcomponent\\intermediate\\build\\win64\\unrealeditor\\inc\\proceduralmeshcomponent\\uht\\kismetproceduralmeshlibrary.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

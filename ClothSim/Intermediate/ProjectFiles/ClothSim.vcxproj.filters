@@ -45,5 +45,35 @@
     <ClInclude Include="..\..\Source\ClothSim\StartClass.h">
       <Filter>Source\ClothSim</Filter>
     </ClInclude>
+    <Filter Include="Source\ClothSim\Private">
+      <UniqueIdentifier>{EEBC7B2C-33F6-3D43-BE80-50D7346B7848}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\ClothSim\Private\Cloth.cpp">
+      <Filter>Source\ClothSim\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ClothSim\Private\ClothConstraint.cpp">
+      <Filter>Source\ClothSim\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ClothSim\Private\ClothParticle.cpp">
+      <Filter>Source\ClothSim\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ClothSim\Private\MyCharacter.cpp">
+      <Filter>Source\ClothSim\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\ClothSim\Public">
+      <UniqueIdentifier>{D8FF5561-3724-3468-8F1D-24486BF8E9B1}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\ClothSim\Public\Cloth.h">
+      <Filter>Source\ClothSim\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ClothSim\Public\ClothConstraint.h">
+      <Filter>Source\ClothSim\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ClothSim\Public\ClothParticle.h">
+      <Filter>Source\ClothSim\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ClothSim\Public\MyCharacter.h">
+      <Filter>Source\ClothSim\Public</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
