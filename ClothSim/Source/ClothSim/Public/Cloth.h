@@ -70,6 +70,9 @@ protected:
 	float HorzDist; // ClothWidth  / NumHorzParticles
 	float VertDist; // ClothHeight / NumVertParticles
 
+	UPROPERTY(EditDefaultsOnly, Category = Cloth)
+	int UpdateSteps = 1;
+
 	FTimerHandle UpdateTimer;
 	float TimeStep = 0.016f; // 60 FPS
 

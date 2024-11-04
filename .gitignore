@@ -73,3 +73,6 @@ Plugins/**/Intermediate/*
 # Cache files for the editor to use
 DerivedDataCache/*
 ClothSim/Saved/Telemetry/Telemetry.json
+ClothSim/Binaries/Win64
+ClothSim/Intermediate/Build/Win64/x64
+ClothSim/Saved/Config/CrashReportClient

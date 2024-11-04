@@ -53,7 +53,10 @@ bool ClothParticle::SharesConstraint(ClothParticle* _otherParticle)
 
 void ClothParticle::OffsetPosition(FVector _offset)
 {
-	Position += _offset;
+    if(!GetPinned())
+    {
+    	Position += _offset;
+    }
 }
 
 void ClothParticle::AddForce(FVector _force)
@@ -63,26 +66,32 @@ void ClothParticle::AddForce(FVector _force)
 
 void ClothParticle::Update(float _deltaTime)
 {
+  
     if (GetPinned())
     {
         Acceleration = { 0, 0, 0 };
-    }
+    }  
     else
     {
         Acceleration += { -2, -10, -100 };
     }
-
+    
     FVector cachedPosition = Position;
 
     if (OldDeltaTime <= 0.0f)
     {
         OldDeltaTime = _deltaTime;
     }
-
+    // Frame rate dependent
     Position = Position + 
-        ((Position - OldPosition) * (_deltaTime / OldDeltaTime)) + 
+        ((Position - OldPosition) * ((1.0f-Damping)*
+        (_deltaTime / OldDeltaTime))) + 
         (Acceleration * _deltaTime * ((_deltaTime + OldDeltaTime) * 0.5f));
 
+    // Non-frame rate dependent
+    //Position = Position +
+    //    (Position - OldPosition) * (1.0f - Damping) + 
+    //    Acceleration * _deltaTime;
 
     Acceleration = { 0, 0, 0 };
 

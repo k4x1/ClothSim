@@ -185,17 +185,26 @@ void ACloth::Tick(float DeltaTime)
 // Tied to fixed frame update (60fps)
 void ACloth::Update()
 {
-	// Update all constraints
-	for (auto iter : Constraints)
+	float iterationTimeStep = TimeStep / (float)UpdateSteps;
+	for (int i = 0; i < UpdateSteps; i++)
 	{
-		iter->Update(TimeStep);
-	}
-
-	for (int Vert = 0; Vert < Particles.Num(); Vert++)
-	{
-		for (int Horz = 0; Horz < Particles[Vert].Num(); Horz++)
+		// Update all constraints
+		for (auto iter : Constraints)
 		{
-			 Particles[Vert][Horz]->Update(TimeStep);
+			iter->Update(TimeStep);
+		}
+
+		for (int Vert = 0; Vert < Particles.Num(); Vert++)
+		{
+			for (int Horz = 0; Horz < Particles[Vert].Num(); Horz++)
+			{
+				int index = Horz + Particles[Vert].Num() * Vert;
+				FVector windForce = { 2,10,0 };
+				float dotProduct = FVector::DotProduct(ClothNormal[index], windForce);
+				Particles[Vert][Horz]->AddForce({0, 0, -100});
+				Particles[Vert][Horz]->AddForce(windForce * abs(dotProduct));
+				Particles[Vert][Horz]->Update(iterationTimeStep);
+			}
 		}
 	}
 }

@@ -77,6 +77,16 @@ struct Z_Construct_UClass_ACloth_Statics
 		{ "Category", "Cloth" },
 		{ "ModuleRelativePath", "Public/Cloth.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_UpdateSteps_MetaData[] = {
+		{ "Category", "Cloth" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// ClothHeight / NumVertParticles\n" },
+#endif
+		{ "ModuleRelativePath", "Public/Cloth.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "ClothHeight / NumVertParticles" },
+#endif
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ClothMesh;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ClothMaterial;
@@ -84,6 +94,7 @@ struct Z_Construct_UClass_ACloth_Statics
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_ClothHeight;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_NumHorzParticles;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_NumVertParticles;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_UpdateSteps;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -97,6 +108,7 @@ const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACloth_Statics:
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACloth_Statics::NewProp_ClothHeight = { "ClothHeight", nullptr, (EPropertyFlags)0x0020080000010001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACloth, ClothHeight), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ClothHeight_MetaData), NewProp_ClothHeight_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ACloth_Statics::NewProp_NumHorzParticles = { "NumHorzParticles", nullptr, (EPropertyFlags)0x0020080000010001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACloth, NumHorzParticles), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NumHorzParticles_MetaData), NewProp_NumHorzParticles_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ACloth_Statics::NewProp_NumVertParticles = { "NumVertParticles", nullptr, (EPropertyFlags)0x0020080000010001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACloth, NumVertParticles), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NumVertParticles_MetaData), NewProp_NumVertParticles_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ACloth_Statics::NewProp_UpdateSteps = { "UpdateSteps", nullptr, (EPropertyFlags)0x0020080000010001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACloth, UpdateSteps), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_UpdateSteps_MetaData), NewProp_UpdateSteps_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACloth_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACloth_Statics::NewProp_ClothMesh,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACloth_Statics::NewProp_ClothMaterial,
@@ -104,6 +116,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACloth_St
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACloth_Statics::NewProp_ClothHeight,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACloth_Statics::NewProp_NumHorzParticles,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACloth_Statics::NewProp_NumVertParticles,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACloth_Statics::NewProp_UpdateSteps,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACloth_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ACloth_Statics::DependentSingletons[])() = {
@@ -146,10 +159,10 @@ ACloth::~ACloth() {}
 struct Z_CompiledInDeferFile_FID_forkRepos_ClothSim_ClothSim_Source_ClothSim_Public_Cloth_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ACloth, ACloth::StaticClass, TEXT("ACloth"), &Z_Registration_Info_UClass_ACloth, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACloth), 1023196514U) },
+		{ Z_Construct_UClass_ACloth, ACloth::StaticClass, TEXT("ACloth"), &Z_Registration_Info_UClass_ACloth, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACloth), 101135382U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_forkRepos_ClothSim_ClothSim_Source_ClothSim_Public_Cloth_h_2441163414(TEXT("/Script/ClothSim"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_forkRepos_ClothSim_ClothSim_Source_ClothSim_Public_Cloth_h_2009270140(TEXT("/Script/ClothSim"),
 	Z_CompiledInDeferFile_FID_forkRepos_ClothSim_ClothSim_Source_ClothSim_Public_Cloth_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_forkRepos_ClothSim_ClothSim_Source_ClothSim_Public_Cloth_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

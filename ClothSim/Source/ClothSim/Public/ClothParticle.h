@@ -40,4 +40,5 @@ private:
 	FVector Acceleration = FVector::ZeroVector;
 	TArray<ClothConstraint*> Constraints;
 	bool IsPinned = false;
+	float Damping = 0.01f; 
 };

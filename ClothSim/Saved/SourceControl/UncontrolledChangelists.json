@@ -8,7 +8,14 @@
 				"D:/forkRepos/ClothSim/ClothSim/Content/Maps/L_MainLevel.umap",
 				"D:/forkRepos/ClothSim/ClothSim/Content/BP_Cloth.uasset",
 				"D:/forkRepos/ClothSim/ClothSim/Content/Images/yahoo.uasset",
-				"D:/forkRepos/ClothSim/ClothSim/Content/Images/m_cloth.uasset"
+				"D:/forkRepos/ClothSim/ClothSim/Content/Images/m_cloth.uasset",
+				"D:/forkRepos/ClothSim/ClothSim/Content/Images/soft-blanket-ue/soft-blanket_albedo.uasset",
+				"D:/forkRepos/ClothSim/ClothSim/Content/Images/soft-blanket-ue/soft-blanket_ao.uasset",
+				"D:/forkRepos/ClothSim/ClothSim/Content/Images/soft-blanket-ue/soft-blanket_height.uasset",
+				"D:/forkRepos/ClothSim/ClothSim/Content/Images/soft-blanket-ue/soft-blanket_metallic.uasset",
+				"D:/forkRepos/ClothSim/ClothSim/Content/Images/soft-blanket-ue/soft-blanket_normal-dx.uasset",
+				"D:/forkRepos/ClothSim/ClothSim/Content/Images/soft-blanket-ue/soft-blanket_preview.uasset",
+				"D:/forkRepos/ClothSim/ClothSim/Content/Images/soft-blanket-ue/soft-blanket_roughness.uasset"
 			]
 		}
 	]
