@@ -112,11 +112,12 @@ void ClothParticle::CheckForGroundCollision(float _groundHeight)
             Position.Z = _groundHeight;
         }
     }
-    else 
+    else
     {
         OnGround = false;
     }
 }
+
 
 void ClothParticle::CheckForCollision(FVector _spherePos, float _sphereRad)
 {

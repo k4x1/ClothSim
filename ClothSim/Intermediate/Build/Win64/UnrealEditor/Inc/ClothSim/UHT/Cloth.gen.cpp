@@ -269,6 +269,22 @@ struct Z_Construct_UClass_ACloth_Statics
 		{ "Category", "Collision" },
 		{ "ModuleRelativePath", "Public/Cloth.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CapsuleStartPoint_MetaData[] = {
+		{ "Category", "Collision" },
+		{ "ModuleRelativePath", "Public/Cloth.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CapsuleEndPoint_MetaData[] = {
+		{ "Category", "Collision" },
+		{ "ModuleRelativePath", "Public/Cloth.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CapsuleRadius_MetaData[] = {
+		{ "Category", "Collision" },
+		{ "ModuleRelativePath", "Public/Cloth.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CapsuleCollisionActor_MetaData[] = {
+		{ "Category", "Collision" },
+		{ "ModuleRelativePath", "Public/Cloth.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ClothMesh;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ClothMaterial;
@@ -289,6 +305,10 @@ struct Z_Construct_UClass_ACloth_Statics
 	static const UECodeGen_Private::FStructPropertyParams NewProp_SpherePosition;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_SphereRadius;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CollisionActor;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_CapsuleStartPoint;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_CapsuleEndPoint;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_CapsuleRadius;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_CapsuleCollisionActor;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -304,8 +324,8 @@ struct Z_Construct_UClass_ACloth_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACloth_Statics::NewProp_ClothMesh = { "ClothMesh", nullptr, (EPropertyFlags)0x0020080000090009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACloth, ClothMesh), Z_Construct_UClass_UProceduralMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ClothMesh_MetaData), NewProp_ClothMesh_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACloth_Statics::NewProp_ClothMaterial = { "ClothMaterial", nullptr, (EPropertyFlags)0x0020080000010001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACloth, ClothMaterial), Z_Construct_UClass_UMaterial_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ClothMaterial_MetaData), NewProp_ClothMaterial_MetaData) };
-const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACloth_Statics::NewProp_ClothWidth = { "ClothWidth", nullptr, (EPropertyFlags)0x0020080000010001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACloth, ClothWidth), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ClothWidth_MetaData), NewProp_ClothWidth_MetaData) };
-const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACloth_Statics::NewProp_ClothHeight = { "ClothHeight", nullptr, (EPropertyFlags)0x0020080000010001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACloth, ClothHeight), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ClothHeight_MetaData), NewProp_ClothHeight_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACloth_Statics::NewProp_ClothWidth = { "ClothWidth", nullptr, (EPropertyFlags)0x0020080000010005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACloth, ClothWidth), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ClothWidth_MetaData), NewProp_ClothWidth_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACloth_Statics::NewProp_ClothHeight = { "ClothHeight", nullptr, (EPropertyFlags)0x0020080000010005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACloth, ClothHeight), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ClothHeight_MetaData), NewProp_ClothHeight_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ACloth_Statics::NewProp_NumHorzParticles = { "NumHorzParticles", nullptr, (EPropertyFlags)0x0020080000010001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACloth, NumHorzParticles), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NumHorzParticles_MetaData), NewProp_NumHorzParticles_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ACloth_Statics::NewProp_NumHooks = { "NumHooks", nullptr, (EPropertyFlags)0x0020080000010005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACloth, NumHooks), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NumHooks_MetaData), NewProp_NumHooks_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ACloth_Statics::NewProp_NumVertParticles = { "NumVertParticles", nullptr, (EPropertyFlags)0x0020080000010001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACloth, NumVertParticles), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NumVertParticles_MetaData), NewProp_NumVertParticles_MetaData) };
@@ -321,6 +341,10 @@ const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACloth_Statics:
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACloth_Statics::NewProp_SpherePosition = { "SpherePosition", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACloth, SpherePosition), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SpherePosition_MetaData), NewProp_SpherePosition_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACloth_Statics::NewProp_SphereRadius = { "SphereRadius", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACloth, SphereRadius), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SphereRadius_MetaData), NewProp_SphereRadius_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACloth_Statics::NewProp_CollisionActor = { "CollisionActor", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACloth, CollisionActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CollisionActor_MetaData), NewProp_CollisionActor_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACloth_Statics::NewProp_CapsuleStartPoint = { "CapsuleStartPoint", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACloth, CapsuleStartPoint), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CapsuleStartPoint_MetaData), NewProp_CapsuleStartPoint_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACloth_Statics::NewProp_CapsuleEndPoint = { "CapsuleEndPoint", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACloth, CapsuleEndPoint), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CapsuleEndPoint_MetaData), NewProp_CapsuleEndPoint_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACloth_Statics::NewProp_CapsuleRadius = { "CapsuleRadius", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACloth, CapsuleRadius), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CapsuleRadius_MetaData), NewProp_CapsuleRadius_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACloth_Statics::NewProp_CapsuleCollisionActor = { "CapsuleCollisionActor", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACloth, CapsuleCollisionActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CapsuleCollisionActor_MetaData), NewProp_CapsuleCollisionActor_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACloth_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACloth_Statics::NewProp_ClothMesh,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACloth_Statics::NewProp_ClothMaterial,
@@ -341,6 +365,10 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACloth_St
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACloth_Statics::NewProp_SpherePosition,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACloth_Statics::NewProp_SphereRadius,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACloth_Statics::NewProp_CollisionActor,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACloth_Statics::NewProp_CapsuleStartPoint,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACloth_Statics::NewProp_CapsuleEndPoint,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACloth_Statics::NewProp_CapsuleRadius,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACloth_Statics::NewProp_CapsuleCollisionActor,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACloth_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ACloth_Statics::DependentSingletons[])() = {
@@ -383,10 +411,10 @@ ACloth::~ACloth() {}
 struct Z_CompiledInDeferFile_FID_forkRepos_ClothSim_ClothSim_Source_ClothSim_Public_Cloth_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ACloth, ACloth::StaticClass, TEXT("ACloth"), &Z_Registration_Info_UClass_ACloth, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACloth), 3077402586U) },
+		{ Z_Construct_UClass_ACloth, ACloth::StaticClass, TEXT("ACloth"), &Z_Registration_Info_UClass_ACloth, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACloth), 3257932848U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_forkRepos_ClothSim_ClothSim_Source_ClothSim_Public_Cloth_h_2095391796(TEXT("/Script/ClothSim"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_forkRepos_ClothSim_ClothSim_Source_ClothSim_Public_Cloth_h_1869827582(TEXT("/Script/ClothSim"),
 	Z_CompiledInDeferFile_FID_forkRepos_ClothSim_ClothSim_Source_ClothSim_Public_Cloth_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_forkRepos_ClothSim_ClothSim_Source_ClothSim_Public_Cloth_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

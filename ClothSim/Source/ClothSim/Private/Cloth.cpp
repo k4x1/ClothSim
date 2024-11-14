@@ -145,7 +145,7 @@ void ACloth::CheckForCollision()
 {
 	FVector SpherePos = SpherePosition;
 	float SphereRad = SphereRadius;
-
+	
 	if (CollisionActor)
 	{
 		USphereComponent* SphereComp = CollisionActor->FindComponentByClass<USphereComponent>();
@@ -153,6 +153,7 @@ void ACloth::CheckForCollision()
 		{
 			SpherePos = SphereComp->GetComponentLocation();
 			SphereRad = SphereComp->GetScaledSphereRadius();
+			SphereRad++;
 		}
 		else
 		{
@@ -162,6 +163,7 @@ void ACloth::CheckForCollision()
 				FBoxSphereBounds Bounds = MeshComp->Bounds;
 				SpherePos = Bounds.Origin;
 				SphereRad = Bounds.SphereRadius;
+				SphereRad++;
 			}
 			else
 			{
@@ -192,6 +194,7 @@ void ACloth::CheckForCollision()
 
 				Particles[Vert][Horz]->SetPosition(NewPos);
 			}
+			Particles[Vert][Horz]->CheckForGroundCollision(GroundHeight - ClothMesh->GetComponentLocation().Z);
 		}
 	}
 }

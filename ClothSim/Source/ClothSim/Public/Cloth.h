@@ -77,13 +77,13 @@ protected:
 	// Cloth properties 
 
 	/////////////////////////////////////////////
-	UPROPERTY(EditDefaultsOnly, Category = Cloth)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = Cloth)
 		float ClothWidth  = 200.0f;  // CM
 	/////////////////////////////////////////////
 
 
 	/////////////////////////////////////////////
-	UPROPERTY(EditDefaultsOnly, Category = Cloth)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = Cloth)
 		float ClothHeight = 200.0f;  // CM
 	/////////////////////////////////////////////
 
@@ -173,6 +173,22 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = Collision)
 		AActor* CollisionActor = nullptr;
+
+
+
+	UPROPERTY(EditAnywhere, Category = Collision)
+	FVector CapsuleStartPoint;
+
+	UPROPERTY(EditAnywhere, Category = Collision)
+	FVector CapsuleEndPoint;
+
+	UPROPERTY(EditAnywhere, Category = Collision)
+	float CapsuleRadius;
+	UPROPERTY(EditAnywhere, Category = Collision)
+	AActor* CapsuleCollisionActor;
+
+
+
 	FTimerHandle UpdateTimer;
 		float TimeStep = 0.016f; // 60 FPS
 
