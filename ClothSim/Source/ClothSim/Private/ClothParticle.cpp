@@ -24,6 +24,11 @@ FVector ClothParticle::GetPosition()
 	return Position;
 }
 
+void ClothParticle::SetPosition(FVector _NewPos)
+{
+    Position = _NewPos;
+}
+
 TArray<class ClothConstraint*> ClothParticle::GetConstraints()
 {
 	return Constraints;
@@ -67,14 +72,12 @@ void ClothParticle::AddForce(FVector _force)
 void ClothParticle::Update(float _deltaTime)
 {
   
-    if (GetPinned())
+    if (GetPinned() || OnGround)
     {
         Acceleration = { 0, 0, 0 };
+        return;
     }  
-    else
-    {
-        Acceleration += { -2, -10, -100 };
-    }
+   
     
     FVector cachedPosition = Position;
 
@@ -83,18 +86,45 @@ void ClothParticle::Update(float _deltaTime)
         OldDeltaTime = _deltaTime;
     }
     // Frame rate dependent
-    Position = Position + 
+ /*   Position = Position +
         ((Position - OldPosition) * ((1.0f-Damping)*
         (_deltaTime / OldDeltaTime))) + 
-        (Acceleration * _deltaTime * ((_deltaTime + OldDeltaTime) * 0.5f));
+        (Acceleration * _deltaTime * ((_deltaTime + OldDeltaTime) * 0.5f));*/
 
     // Non-frame rate dependent
-    //Position = Position +
-    //    (Position - OldPosition) * (1.0f - Damping) + 
-    //    Acceleration * _deltaTime;
+    Position = Position +
+        (Position - OldPosition) * (1.0f - Damping) + 
+        Acceleration * _deltaTime;
 
     Acceleration = { 0, 0, 0 };
 
     OldPosition = cachedPosition;
     OldDeltaTime = _deltaTime;
+}
+
+void ClothParticle::CheckForGroundCollision(float _groundHeight)
+{
+    if (Position.Z <= _groundHeight + 1)
+    {
+        OnGround = true;
+        if (Position.Z <= _groundHeight)
+        {
+            Position.Z = _groundHeight;
+        }
+    }
+    else 
+    {
+        OnGround = false;
+    }
+}
+
+void ClothParticle::CheckForCollision(FVector _spherePos, float _sphereRad)
+{
+    FVector VecToSphere = Position - _spherePos;
+    float distance = VecToSphere.Size();
+    if (distance < _sphereRad)
+    {
+        FVector Normal = VecToSphere / distance;
+        Position = _spherePos + Normal * _sphereRad;
+    }
 }

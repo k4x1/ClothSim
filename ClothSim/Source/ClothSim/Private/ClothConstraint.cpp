@@ -9,7 +9,7 @@ ClothConstraint::ClothConstraint(ClothParticle* _particleA, ClothParticle* _part
 	ParticleA = _particleA;
 	ParticleB = _particleB;
 
-	RestingDistance = FVector::Dist(ParticleA->GetPosition(), ParticleB->GetPosition()) * 1.1f;
+	RestingDistance = FVector::Dist(ParticleA->GetPosition(), ParticleB->GetPosition());
 }
 
 ClothConstraint::~ClothConstraint()
@@ -19,10 +19,10 @@ ClothConstraint::~ClothConstraint()
 
 void ClothConstraint::Update(float _DeltaTime)
 {
-	if (ParticleA->GetPinned() && ParticleB->GetPinned()) 
-	{
-		return;
-	}
+	//if (ParticleA->GetPinned() && ParticleB->GetPinned()) 
+	//{
+	//	return;
+	//}
 	FVector	CurrentOffset = ParticleB->GetPosition() - ParticleA->GetPosition();
 
 	//Strength = (1.0f - RestingDistance / CurrentOffset.Size());
@@ -43,7 +43,7 @@ void ClothConstraint::Update(float _DeltaTime)
 		ParticleB->OffsetPosition(-Correction);
 	}
 
-	
+	/*
 	// F = -kx
 	// f = force
 	// k = stiffness 
@@ -53,7 +53,8 @@ void ClothConstraint::Update(float _DeltaTime)
 	float stiffness = 800.0f;
 	float deform = length - RestingDistance;
 	FVector normOffset = CurrentOffset;
-	normOffset.Normalize();
+	normOffset.GetSafeNormal();
+
 	FVector force = normOffset * stiffness * deform;
 	FVector halfForce = force * 0.5f;
 
@@ -70,5 +71,5 @@ void ClothConstraint::Update(float _DeltaTime)
 	else if (!ParticleB->GetPinned())
 	{
 		ParticleB->AddForce(-force);
-	}
+	}*/
 }

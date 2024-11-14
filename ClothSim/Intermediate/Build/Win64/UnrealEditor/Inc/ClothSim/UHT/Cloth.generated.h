@@ -14,6 +14,12 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define CLOTHSIM_Cloth_generated_h
 
+#define FID_forkRepos_ClothSim_ClothSim_Source_ClothSim_Public_Cloth_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execConstrictCloth); \
+	DECLARE_FUNCTION(execResetCloth); \
+	DECLARE_FUNCTION(execReleaseCloth);
+
+
 #define FID_forkRepos_ClothSim_ClothSim_Source_ClothSim_Public_Cloth_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesACloth(); \
@@ -39,6 +45,7 @@ public: \
 #define FID_forkRepos_ClothSim_ClothSim_Source_ClothSim_Public_Cloth_h_16_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_forkRepos_ClothSim_ClothSim_Source_ClothSim_Public_Cloth_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_forkRepos_ClothSim_ClothSim_Source_ClothSim_Public_Cloth_h_16_INCLASS_NO_PURE_DECLS \
 	FID_forkRepos_ClothSim_ClothSim_Source_ClothSim_Public_Cloth_h_16_ENHANCED_CONSTRUCTORS \
 private: \

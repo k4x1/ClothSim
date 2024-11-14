@@ -26,6 +26,7 @@ public:
 	void SetPinned(bool _pin);
 
 	FVector GetPosition();
+	void SetPosition(FVector _NewPos);
 
 	void OffsetPosition(FVector _offset);
 
@@ -33,6 +34,8 @@ public:
 
 	void Update(float _deltaTime);
 
+	void CheckForGroundCollision(float _groundHeight);
+	void CheckForCollision(FVector _spherePos, float _sphereRad);
 private:
 	FVector Position = FVector::ZeroVector;
 	FVector OldPosition = FVector::ZeroVector;
@@ -41,4 +44,5 @@ private:
 	TArray<ClothConstraint*> Constraints;
 	bool IsPinned = false;
 	float Damping = 0.01f; 
+	bool OnGround = false;
 };

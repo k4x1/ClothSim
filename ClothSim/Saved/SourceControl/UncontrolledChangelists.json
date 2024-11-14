@@ -15,7 +15,12 @@
 				"D:/forkRepos/ClothSim/ClothSim/Content/Images/soft-blanket-ue/soft-blanket_metallic.uasset",
 				"D:/forkRepos/ClothSim/ClothSim/Content/Images/soft-blanket-ue/soft-blanket_normal-dx.uasset",
 				"D:/forkRepos/ClothSim/ClothSim/Content/Images/soft-blanket-ue/soft-blanket_preview.uasset",
-				"D:/forkRepos/ClothSim/ClothSim/Content/Images/soft-blanket-ue/soft-blanket_roughness.uasset"
+				"D:/forkRepos/ClothSim/ClothSim/Content/Images/soft-blanket-ue/soft-blanket_roughness.uasset",
+				"D:/forkRepos/ClothSim/ClothSim/Content/BP_PlayerController.uasset",
+				"D:/forkRepos/ClothSim/ClothSim/Content/BP_GameMode.uasset",
+				"D:/forkRepos/ClothSim/ClothSim/Content/UI/BP_Hud.uasset",
+				"D:/forkRepos/ClothSim/ClothSim/Content/UI/WBP_Interface.uasset",
+				"D:/forkRepos/ClothSim/ClothSim/Content/BP_Sphere.uasset"
 			]
 		}
 	]
