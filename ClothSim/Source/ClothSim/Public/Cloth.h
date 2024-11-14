@@ -171,7 +171,8 @@ protected:
 	UPROPERTY(EditAnywhere, Category = Collision)
 		float SphereRadius;
 
-
+	UPROPERTY(EditAnywhere, Category = Collision)
+		AActor* CollisionActor = nullptr;
 	FTimerHandle UpdateTimer;
 		float TimeStep = 0.016f; // 60 FPS
 

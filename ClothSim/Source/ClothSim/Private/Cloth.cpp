@@ -2,6 +2,7 @@
 
 
 #include "Cloth.h"
+#include "Components/SphereComponent.h"	
 #include "ClothParticle.h"
 #include "ClothConstraint.h"
 #include "ProceduralMeshComponent.h"
@@ -142,20 +143,59 @@ void ACloth::GenerateMesh()
 
 void ACloth::CheckForCollision()
 {
+	FVector SpherePos = SpherePosition;
+	float SphereRad = SphereRadius;
+
+	if (CollisionActor)
+	{
+		USphereComponent* SphereComp = CollisionActor->FindComponentByClass<USphereComponent>();
+		if (SphereComp)
+		{
+			SpherePos = SphereComp->GetComponentLocation();
+			SphereRad = SphereComp->GetScaledSphereRadius();
+		}
+		else
+		{
+			UStaticMeshComponent* MeshComp = CollisionActor->FindComponentByClass<UStaticMeshComponent>();
+			if (MeshComp)
+			{
+				FBoxSphereBounds Bounds = MeshComp->Bounds;
+				SpherePos = Bounds.Origin;
+				SphereRad = Bounds.SphereRadius;
+			}
+			else
+			{
+				UE_LOG(LogTemp, Warning, TEXT("CollisionActor has no SphereComponent or StaticMeshComponent"));
+				return;
+			}
+		}
+	}
+
+	// Convert sphere position to local space of the cloth
+	SpherePos = ClothMesh->GetComponentTransform().InverseTransformPosition(SpherePos);
+
 	for (int Vert = 0; Vert < NumVertParticles; Vert++)
 	{
-		TArray<ClothParticle*> ParticleRow;
 		for (int Horz = 0; Horz < NumHorzParticles; Horz++)
 		{
-			// Check for ground collision
-			Particles[Vert][Horz]->CheckForGroundCollision(GroundHeight - ClothMesh->GetComponentLocation().Z);
+			FVector ParticlePos = Particles[Vert][Horz]->GetPosition();
+			FVector VecToSphere = ParticlePos - SpherePos;
+			float distance = VecToSphere.Size();
 
-			// Check for sphere collision
-			Particles[Vert][Horz]->CheckForCollision(SpherePosition, SphereRadius);
-			// Check for capsule collision
+			if (distance < SphereRad)
+			{
+				FVector Normal = VecToSphere.GetSafeNormal();
+				FVector NewPos = SpherePos + Normal * SphereRad;
+
+				// Ensure the new position is at least at the same height as the original particle
+				NewPos.Z = FMath::Max(NewPos.Z, ParticlePos.Z);
+
+				Particles[Vert][Horz]->SetPosition(NewPos);
+			}
 		}
 	}
 }
+
 
 FVector ACloth::GetParticleNormal(int _XIndex, int _YIndex)
 {
