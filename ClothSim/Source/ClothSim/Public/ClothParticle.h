@@ -36,6 +36,9 @@ public:
 
 	void CheckForGroundCollision(float _groundHeight);
 	void CheckForCollision(FVector _spherePos, float _sphereRad);
+	void CheckForCapsuleCollision(const FVector& CapsuleStart, const FVector& CapsuleEnd, float CapsuleRadius);
+	void CheckForSphereCollision(const FVector& SphereCenter, float SphereRadius);
+
 private:
 	FVector Position = FVector::ZeroVector;
 	FVector OldPosition = FVector::ZeroVector;

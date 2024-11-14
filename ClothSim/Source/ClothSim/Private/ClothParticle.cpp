@@ -127,5 +127,52 @@ void ClothParticle::CheckForCollision(FVector _spherePos, float _sphereRad)
     {
         FVector Normal = VecToSphere / distance;
         Position = _spherePos + Normal * _sphereRad;
+ 
+   }
+}
+void ClothParticle::CheckForCapsuleCollision(const FVector& CapsuleStart, const FVector& CapsuleEnd, float CapsuleRadius)
+{
+    //if (IsPinned) return;
+    FVector ParticlePos = GetPosition();
+
+    // Calculate the closest point on the capsule's line segment to the particle
+    FVector ClosestPointOnLine = FMath::ClosestPointOnSegment(ParticlePos, CapsuleStart, CapsuleEnd);
+
+    // Check the distance between the particle and the closest point on the line segment
+    FVector VecToLine = ParticlePos - ClosestPointOnLine;
+    float DistToLine = VecToLine.Size();
+
+    if (VecToLine.IsZero()) return;
+    if (CapsuleStart == CapsuleEnd) return;
+    if (!FMath::IsFinite(DistToLine)) return;
+    if (DistToLine < CapsuleRadius)
+    {
+
+        FVector Normal = VecToLine.GetSafeNormal();
+        SetPosition(ClosestPointOnLine + Normal * CapsuleRadius);
     }
 }
+
+
+    // In ClothParticle.cpp
+void ClothParticle::CheckForSphereCollision(const FVector & SphereCenter, float SphereRadius)
+{
+    FVector VecToSphere = GetPosition() - SphereCenter;
+    float Distance = VecToSphere.Size();
+
+    if (Distance < SphereRadius)
+    {
+        FVector Normal = VecToSphere.GetSafeNormal();
+        FVector NewPos = SphereCenter + Normal * SphereRadius;
+
+        // Ensure the new position is at least at the same height as the original particle
+        NewPos.Z = FMath::Max(NewPos.Z, GetPosition().Z);
+
+        SetPosition(NewPos);
+    }
+}
+
+
+
+
+

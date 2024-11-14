@@ -20,7 +20,8 @@
 				"D:/forkRepos/ClothSim/ClothSim/Content/BP_GameMode.uasset",
 				"D:/forkRepos/ClothSim/ClothSim/Content/UI/BP_Hud.uasset",
 				"D:/forkRepos/ClothSim/ClothSim/Content/UI/WBP_Interface.uasset",
-				"D:/forkRepos/ClothSim/ClothSim/Content/BP_Sphere.uasset"
+				"D:/forkRepos/ClothSim/ClothSim/Content/BP_Sphere.uasset",
+				"D:/forkRepos/ClothSim/ClothSim/Content/BP_Capsule.uasset"
 			]
 		}
 	]

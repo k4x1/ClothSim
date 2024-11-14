@@ -42,34 +42,4 @@ void ClothConstraint::Update(float _DeltaTime)
 	{
 		ParticleB->OffsetPosition(-Correction);
 	}
-
-	/*
-	// F = -kx
-	// f = force
-	// k = stiffness 
-	// x = deform amount
-	
-	float length = (float)CurrentOffset.Size();
-	float stiffness = 800.0f;
-	float deform = length - RestingDistance;
-	FVector normOffset = CurrentOffset;
-	normOffset.GetSafeNormal();
-
-	FVector force = normOffset * stiffness * deform;
-	FVector halfForce = force * 0.5f;
-
-
-	if (!ParticleA->GetPinned() && !ParticleB->GetPinned())
-	{
-		ParticleA->AddForce(halfForce);
-		ParticleB->AddForce(-halfForce);
-	}
-	else if (!ParticleA->GetPinned())
-	{
-		ParticleA->AddForce(force);
-	}
-	else if (!ParticleB->GetPinned())
-	{
-		ParticleB->AddForce(-force);
-	}*/
 }

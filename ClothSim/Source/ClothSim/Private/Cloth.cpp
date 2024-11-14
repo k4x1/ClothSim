@@ -140,15 +140,14 @@ void ACloth::GenerateMesh()
 	ClothMesh->CreateMeshSection_LinearColor(0, ClothVertices, ClothTriangles, ClothNormals, ClothUV, ClothColors, ClothTangents, false);
 
 }
-
 void ACloth::CheckForCollision()
 {
 	FVector SpherePos = SpherePosition;
 	float SphereRad = SphereRadius;
-	
-	if (CollisionActor)
+
+	if (SphereActor)
 	{
-		USphereComponent* SphereComp = CollisionActor->FindComponentByClass<USphereComponent>();
+		USphereComponent* SphereComp = SphereActor->FindComponentByClass<USphereComponent>();
 		if (SphereComp)
 		{
 			SpherePos = SphereComp->GetComponentLocation();
@@ -157,7 +156,7 @@ void ACloth::CheckForCollision()
 		}
 		else
 		{
-			UStaticMeshComponent* MeshComp = CollisionActor->FindComponentByClass<UStaticMeshComponent>();
+			UStaticMeshComponent* MeshComp = SphereActor->FindComponentByClass<UStaticMeshComponent>();
 			if (MeshComp)
 			{
 				FBoxSphereBounds Bounds = MeshComp->Bounds;
@@ -194,7 +193,39 @@ void ACloth::CheckForCollision()
 
 				Particles[Vert][Horz]->SetPosition(NewPos);
 			}
+					
+
+
 			Particles[Vert][Horz]->CheckForGroundCollision(GroundHeight - ClothMesh->GetComponentLocation().Z);
+		}
+	}
+	if (CapsuleActor)
+	{
+		USphereComponent* SphereComponent = CapsuleActor->FindComponentByClass<USphereComponent>();
+		if (SphereComponent)
+		{
+			// Set the radius
+			CapsuleRadius = SphereComponent->GetScaledSphereRadius();
+			
+			FString DebugMessage = FString::Printf(TEXT("Capsule Radius: %f"), CapsuleRadius);
+			
+		}
+
+		// Get the capsule's start and end points in world space
+		FVector CapsuleStartWorld = CapsuleActor->GetActorLocation() - FVector(0, 0, CapsuleActor->GetActorScale3D().Z );
+		FVector CapsuleEndWorld = CapsuleActor->GetActorLocation() + FVector(0, 0, CapsuleActor->GetActorScale3D().Z );
+		FVector CapsuleStartLocal = ClothMesh->GetComponentTransform().InverseTransformPosition(CapsuleStartWorld);
+		FVector CapsuleEndLocal = ClothMesh->GetComponentTransform().InverseTransformPosition(CapsuleEndWorld);
+
+		for (int Vert = 0; Vert < NumVertParticles; Vert++)
+		{
+			for (int Horz = 0; Horz < NumHorzParticles; Horz++)
+			{
+				// Pass the local-space values to the particle's capsule collision check function
+				Particles[Vert][Horz]->CheckForCapsuleCollision(CapsuleStartLocal, CapsuleEndLocal, CapsuleRadius);
+				Particles[Vert][Horz]->CheckForSphereCollision(CapsuleStartLocal, CapsuleRadius);
+				Particles[Vert][Horz]->CheckForSphereCollision(CapsuleEndLocal, CapsuleRadius);
+			}
 		}
 	}
 }
